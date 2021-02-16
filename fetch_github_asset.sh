@@ -46,7 +46,8 @@ ASSET_ID=$(echo $RELEASE_DATA | jq -r ".assets | map(select(.name == \"${INPUT_F
 TAG_VERSION=$(echo $RELEASE_DATA | jq -r ".tag_name" | sed -e "s/^v//" | sed -e "s/^v.//")
 
 if [[ -z "$ASSET_ID" ]]; then
-  echo "Could not find asset id"
+  echo "Could not find asset id in"
+  echo $RELEASE_DATA
   exit 1
 fi
 
