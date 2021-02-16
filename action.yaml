@@ -24,8 +24,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: sudo apt-get install jq
-      shell: bash
     - run: ${{ github.action_path }}/fetch_github_asset.sh
       shell: bash
 
