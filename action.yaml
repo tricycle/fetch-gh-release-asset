@@ -22,14 +22,12 @@ inputs:
     default: ""
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.repo }}
-    - ${{ inputs.version }}
-    - ${{ inputs.file }}
-    - ${{ inputs.target }}
-    - ${{ inputs.token }}
+  using: "composite"
+  steps:
+    - run: sudo apt-get install jq
+      shell: bash
+    - run: ${{ github.action_path }}/fetch_github_asset.sh
+      shell: bash
 
 outputs:
   version:
