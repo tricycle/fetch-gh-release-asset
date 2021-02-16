@@ -1,29 +1,29 @@
-name: 'Fetch Github Release Asset'
-description: 'Downloads an asset from a Github release'
+name: "Fetch Github Release Asset"
+description: "Downloads an asset from a Github release"
 
 inputs:
   repo:
-    description: 'org/repo to download from'
+    description: "org/repo to download from"
     required: false
-    default: ''
+    default: ""
   version:
-    description: 'version of the release to download from'
+    description: "version of the release to download from"
     required: false
-    default: 'latest'
+    default: "latest"
   file:
-    description: 'name of the file in the release to download'
+    description: "name of the file in the release to download"
     required: true
   target:
-    description: 'name of the target file path'
+    description: "name of the target file path"
     required: false
   token:
-    description: 'optional Personal Access Token to access external repository'
+    description: "optional Personal Access Token to access external repository"
     required: false
-    default: ''
+    default: ""
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.repo }}
     - ${{ inputs.version }}
@@ -33,8 +33,8 @@ runs:
 
 outputs:
   version:
-    description: 'The version of the release or tag'
+    description: "The version of the release or tag"
 
 branding:
-  icon: 'download-cloud'
-  color: 'orange'
+  icon: "download-cloud"
+  color: "orange"
