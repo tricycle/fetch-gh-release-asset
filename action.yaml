@@ -26,6 +26,12 @@ runs:
   steps:
     - run: ${{ github.action_path }}/fetch_github_asset.sh
       shell: bash
+      env:
+        INPUT_REPO: ${{ inputs.repo }}
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_TARGET: ${{ inputs.target }}
+        INPUT_TOKEN: ${{ inputs.token }}
 
 outputs:
   version:
